@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reddy Book ID Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    img.logo {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      color: #FFA500;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    p.sub-text {
+      color: #ccc;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #000;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 12px rgba(255, 165, 0, 0.2);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.4s ease;
+      display: none;
+    }
+
+    .card.active {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .step {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      color: #888;
+      font-size: 16px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 14px 14px 40px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      background: #222;
+      color: #fff;
+    }
+
+    .btn {
+      width: 100%;
+      background: linear-gradient(to right, #2b5876, #4e4376);
+      color: white;
+      font-size: 16px;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      background: linear-gradient(to right, #4e4376, #2b5876);
+    }
+
+    .btn.secondary {
+      background: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .site-card {
+      background: #111;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .site-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .site-card h3 {
+      font-size: 13px;
+      margin: 4px 0 10px;
+      color: #eee;
+      text-align: center;
+    }
+
+    .site-card button {
+      padding: 8px 12px;
+      font-size: 13px;
+      border: none;
+      border-radius: 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .green { background-color: #28a745; }
+    .red { background-color: #dc3545; }
+    .blue { background-color: #007bff; }
+    .purple { background-color: #6f42c1; }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Reddy Book" class="logo">
+    <h1>Welcome to Reddy Book</h1>
+    <p class="sub-text">HELLO SIR KINDLY FILL THE DETAILS FOR NEW ID</p>
+
+    <form id="whatsappForm">
+      <!-- Step 1 -->
+      <div class="card active" id="step1">
+        <div class="step">1/3</div>
+        <label for="name">NAME</label>
+        <div class="input-group">
+          <i class="fa fa-user"></i>
+          <input type="text" id="name" required placeholder="Enter your name">
+        </div>
+        <button type="button" class="btn" onclick="nextStep(1)">
+          <i class="fa fa-arrow-right"></i> Next
+        </button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card" id="step2">
+        <div class="step">2/3</div>
+        <label for="mobile">MOBILE NUMBER</label>
+        <div class="input-group">
+          <i class="fa fa-phone"></i>
+          <input type="text" id="mobile" required placeholder="Enter your mobile number">
+        </div>
+        <button type="button" class="btn secondary" onclick="prevStep(1)">
+          <i class="fa fa-arrow-left"></i> Back
+        </button>
+        <button type="button" class="btn" onclick="validateMobileAndNext()">
+          <i class="fa fa-arrow-right"></i> Next
+        </button>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card" id="step3">
+        <div class="step">3/3</div>
+        <label>Select Website</label>
+        <div class="grid">
+          <div class="site-card">
+            <img src="cricbet99.png" alt="Coexch">
+            <h3>CRICBET99</h3>
+            <button type="button" class="green" onclick="submitForm('Coexch')">Create ID →</button>
+          </div>
+          <div class="site-card">
+            <img src="7xmatch.png" alt="Diamond">
+            <h3>11xplay</h3>
+            <button type="button" class="red" onclick="submitForm('Diamond Exch')">Create ID →</button>
+          </div>
+          <div class="site-card">
+            <img src="lagan247.png" alt="Laserbhai247">
+            <h3>LaserBook</h3>
+            <button type="button" class="purple" onclick="submitForm('Laserbhai247')">Create ID →</button>
+          </div>
+          <div class="site-card">
+            <img src="lotus365.png" alt="Cricketbet99">
+            <h3>Lotus365</h3>
+            <button type="button" class="blue" onclick="submitForm('Cricketbet99')">Create ID →</button>
+          </div>
+          <div class="site-card">
+            <img src="reddybook.png" alt="Diamondplay9">
+            <h3>ReddyBook</h3>
+            <button type="button" class="green" onclick="submitForm('Diamondplay9')">Create ID →</button>
+          </div>
+          <div class="site-card">
+            <img src="laserbhai.png" alt="Laser Bhai">
+            <h3>Laser Bhai</h3>
+            <button type="button" class="red" onclick="submitForm('Laser Bhai')">Create ID →</button>
+          </div>
+        </div>
+        <button type="button" class="btn secondary" style="margin-top:20px;" onclick="prevStep(2)">
+          <i class="fa fa-arrow-left"></i> Back
+        </button>
+      </div>
+    </form>
+
+    <footer>© 2025 Reddy Book. All rights reserved.</footer>
+  </div>
+
+  <script>
+    function nextStep(currentStep) {
+      document.getElementById('step' + currentStep).classList.remove('active');
+      document.getElementById('step' + (currentStep + 1)).classList.add('active');
+    }
+
+    function prevStep(currentStep) {
+      document.getElementById('step' + currentStep).classList.remove('active');
+      document.getElementById('step' + (currentStep - 1)).classList.add('active');
+    }
+
+    function capitalizeName(name) {
+      if (!name) return '';
+      return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    }
+
+    function validateMobileAndNext() {
+      const mobile = document.getElementById("mobile").value.trim();
+      const mobileRegex = /^[6-9]\d{9}$/;
+      if (!mobileRegex.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number starting with 6-9.");
+        return;
+      }
+      nextStep(2);
+    }
+
+    function submitForm(site) {
+      const nameRaw = document.getElementById("name").value.trim();
+      const name = capitalizeName(nameRaw);
+      const mobileRaw = document.getElementById("mobile").value.trim();
+      const mobile = `+91 ${mobileRaw}`;
+      const message = `NAME: ${name}\nMOBILE NUMBER: ${mobile}\nWEBSITE: ${site}`;
+      const phoneNumber = "9516885469";
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, "_blank");
+    }
+  </script>
+</body>
+</html>

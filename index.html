@@ -36,6 +36,8 @@
       object-fit: contain;
       display: block;
       margin: 0 auto 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
     }
 
     h1 {
@@ -53,10 +55,10 @@
     }
 
     .card {
-      background: #000;
+      background: linear-gradient(to bottom, #1a1a1a, #000);
       border-radius: 12px;
       padding: 16px;
-      box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
       opacity: 0;
       transform: scale(0.95);
       transition: all 0.4s ease;
@@ -70,7 +72,7 @@
     }
 
     .step {
-      color: #aaa;
+      color: #FFA500;
       font-size: 13px;
       margin-bottom: 10px;
     }
@@ -91,7 +93,7 @@
       top: 50%;
       left: 12px;
       transform: translateY(-50%);
-      color: #888;
+      color: #FFA500;
       font-size: 14px;
     }
 
@@ -103,11 +105,12 @@
       font-size: 14px;
       background: #222;
       color: #fff;
+      box-shadow: inset 0 0 5px rgba(255,165,0,0.2);
     }
 
     .btn {
       width: 100%;
-      background: linear-gradient(to right, #2b5876, #4e4376);
+      background: linear-gradient(to right, #FFA500, #FF8C00);
       color: white;
       font-size: 14px;
       border: none;
@@ -120,15 +123,17 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
+      box-shadow: 0 2px 6px rgba(255, 140, 0, 0.3);
     }
 
     .btn:hover {
       transform: scale(1.03);
-      background: linear-gradient(to right, #4e4376, #2b5876);
+      background: linear-gradient(to right, #FF8C00, #FFA500);
     }
 
     .btn.secondary {
       background: #333;
+      box-shadow: none;
     }
 
     .grid {
@@ -146,6 +151,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0 0 8px rgba(255,140,0,0.2);
     }
 
     .site-card img {
@@ -176,8 +182,22 @@
     .blue { background-color: #007bff; }
     .purple { background-color: #6f42c1; }
 
-    footer {
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
       margin-top: 24px;
+      font-size: 14px;
+      color: #FFA500;
+      align-items: center;
+    }
+
+    .social i {
+      font-size: 18px;
+    }
+
+    footer {
+      margin-top: 16px;
       text-align: center;
       color: #777;
       font-size: 11px;
@@ -232,29 +252,29 @@
         <label>Select Website</label>
         <div class="grid">
           <div class="site-card">
-            <img src="cricbet99.jpg" alt="Coexch">
-            <h3>cricindia99.com (CRICBET99)</h3>
-            <button type="button" class="green" onclick="submitForm('Coexch')">Create ID →</button>
+            <img src="cricbet99.jpg" alt="CricBet99">
+            <h3>cricindia99.com (CricBet99)</h3>
+            <button type="button" class="green" onclick="submitForm('CricBet99')">Create ID →</button>
           </div>
           <div class="site-card">
-            <img src="7xmatch.png" alt="Diamond">
-            <h3>11xplay</h3>
-            <button type="button" class="red" onclick="submitForm('Diamond Exch')">Create ID →</button>
+            <img src="11xplay.jpeg" alt="11xplay">
+            <h3>7xmatch.com (11xplay)</h3>
+            <button type="button" class="red" onclick="submitForm('11xplay')">Create ID →</button>
           </div>
           <div class="site-card">
-            <img src="lagan247.png" alt="Laserbhai247">
-            <h3>LaserBook</h3>
-            <button type="button" class="purple" onclick="submitForm('Laserbhai247')">Create ID →</button>
+            <img src="laserbook.jpeg" alt="LaserBook">
+            <h3>lagan247.com (LaserBook)</h3>
+            <button type="button" class="purple" onclick="submitForm('LaserBook')">Create ID →</button>
           </div>
           <div class="site-card">
-            <img src="lotus365.png" alt="Cricketbet99">
-            <h3>Lotus365</h3>
-            <button type="button" class="blue" onclick="submitForm('Cricketbet99')">Create ID →</button>
+            <img src="lotus365.png" alt="Lotus365">
+            <h3>lagan365.com (Lotus365)</h3>
+            <button type="button" class="blue" onclick="submitForm('Lotus365')">Create ID →</button>
           </div>
           <div class="site-card">
-            <img src="reddybook.png" alt="Diamondplay9">
-            <h3>ReddyBook</h3>
-            <button type="button" class="green" onclick="submitForm('Diamondplay9')">Create ID →</button>
+            <img src="reddybook.png" alt="ReddyBook">
+            <h3>reddybook247.com (ReddyBook)</h3>
+            <button type="button" class="green" onclick="submitForm('ReddyBook')">Create ID →</button>
           </div>
           <div class="site-card">
             <img src="fairplay.png" alt="Laser Bhai">
@@ -267,6 +287,15 @@
         </button>
       </div>
     </form>
+
+    <div class="social">
+      <a href="https://t.me/Reddyidsupport" target="_blank" style="color:#FFA500; text-decoration:none;">
+        <i class="fab fa-telegram"></i> @Reddyidsupport
+      <a href="https://www.instagram.com/reddyid247/#" target="_blank" style="color:#FFA500; text-decoration:none;">
+        <i class="fab fa-instagram"></i> @reddyid247
+      </a>
+    </div>
+
 
     <footer>© 2025 Reddy Book. All rights reserved.</footer>
   </div>
